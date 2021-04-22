@@ -14,20 +14,20 @@ int main()
         
     hasher->AddHashFun(hash_fun_1);
 
-    hasher->AddNode("shi", node(10, "shi")); 
-    hasher->AddNode("zyy", node(10, "1yy")); 
-    hasher->AddNode("ayy", node(10, "2yy")); 
-    hasher->AddNode("byy", node(10, "3yy")); 
-    hasher->AddNode("cyy", node(10, "4yy")); 
-    hasher->AddNode("dyy", node(10, "5yy")); 
-    hasher->AddNode("eyy", node(10, "6yy")); 
-    hasher->AddNode("ershi", node(20, "ershi")); 
-    hasher->AddNode("sanshi", node(30, "sanshi")); 
+    hasher->AddNode("one", node(1, "one")); 
+    hasher->AddNode("two", node(2, "two")); 
+    hasher->AddNode("three", node(3, "three")); 
+    hasher->AddNode("four", node(4, "four")); 
+    hasher->AddNode("five", node(5, "five")); 
+    hasher->AddNode("six", node(6, "six")); 
+    hasher->AddNode("seven", node(7, "seven")); 
+    hasher->AddNode("eight", node(8, "seven")); 
+    hasher->AddNode("nine", node(9, "nine")); 
     
-    cout << hasher->hash("229348298234379383").node_info << endl;
-    cout << hasher->hash("83").node_info << endl;
-    cout << hasher->hash("12").node_info << endl;
-    cout << hasher->hash("137898234").node_info << endl;
+    cout << hasher->hash("22934aa9383").node_info << endl;
+    cout << hasher->hash("83***").node_info << endl;
+    cout << hasher->hash("1sdfj2").node_info << endl;
+    cout << hasher->hash("123123").node_info << endl;
     cout << hasher->hash("23").node_info << endl;
     cout << hasher->hash("145").node_info << endl;
     cout << hasher->hash("28934829287387334").node_info << endl;

@@ -3,8 +3,6 @@
 
 uint64_t hash_fun_1(const std::string& str)
 {
-    //uint64_t hash_num = std::hash<std::string>{}(str); 
-    //cout << "hash node num:" << hash_num << endl;
     return std::hash<std::string>{}(str);
 }
 
@@ -12,7 +10,8 @@ int main()
 {
     auto hasher = Con_Hash::GetInstance(); 
         
-    hasher->AddHashFun(hash_fun_1);
+    hasher->AddNodeHashFun(hash_fun_1);
+    hasher->SetKeyHashFun(hash_fun_1);
 
     hasher->AddNode("one", node(1, "one")); 
     hasher->AddNode("two", node(2, "two")); 
@@ -33,5 +32,5 @@ int main()
     cout << hasher->hash("28934829287387334").node_info << endl;
     cout << hasher->hash("1402386967195812459").node_info << endl;
 
-
+    return true;
 }

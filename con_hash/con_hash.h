@@ -32,10 +32,14 @@ class Con_Hash
 
         ~Con_Hash(){}
 
-        void AddHashFun(const std::function<uint64_t(const std::string&)>& fun){
+        void AddNodeHashFun(const std::function<uint64_t(const std::string&)>& fun){
             node_hash_funs.push_back(fun);
         };
 
+        void SetKeyHashFun(const std::function<uint64_t(const std::string&)>& fun){
+            key_hash_fun = fun;  
+        };
+        
         void AddNode(const std::string& node_hash_key, const node& node){
             for(size_t i = 0; i < node_hash_funs.size(); ++i)
             {
@@ -45,11 +49,9 @@ class Con_Hash
         
         node hash(const std::string& hash_str)
         {
-            uint64_t hash_key = std::hash<std::string>{}(hash_str);
+            uint64_t hash_key = key_hash_fun(hash_str);
             auto it = std::lower_bound(circle.begin(), circle.end(), hash_key, [](const std::pair<uint64_t, node>& a, const uint64_t b){
-                if(a.first < b)
-                    return true;
-                return false; 
+                return a.first < b;
             });
             
             if(it != circle.end())
